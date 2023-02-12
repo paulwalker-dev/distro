@@ -1,0 +1,16 @@
+#!/bin/sh -e
+
+mkdir -p build && cd build
+
+../configure \
+    --prefix=/cross \
+    --target=x86_64-meerkat-linux-musl \
+    --with-sysroot="$1/cross/${LFS_TARGET}" \
+    --disable-nls \
+    --disable-multilib \
+    --disable-werror \
+    --enable-deterministic-archives \
+    --disable-compressed-debug-sections
+
+make
+make install
