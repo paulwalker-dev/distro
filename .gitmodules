@@ -1,0 +1,3 @@
+[submodule "kiss"]
+	path = kiss
+	url = https://github.com/kisslinux/kiss.git
