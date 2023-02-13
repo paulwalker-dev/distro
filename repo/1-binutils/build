@@ -3,14 +3,12 @@
 mkdir -p build && cd build
 
 ../configure \
-    --prefix=/cross \
-    --target=x86_64-meerkat-linux-musl \
-    --with-sysroot="$1/cross/${LFS_TARGET}" \
+    --prefix="/tools" \
+    --with-sysroot="$KISS_ROOT" \
+    --target="$KISS_TGT" \
     --disable-nls \
-    --disable-multilib \
-    --disable-werror \
-    --enable-deterministic-archives \
-    --disable-compressed-debug-sections
+    --enable-gprofng=no \
+    --disable-werror
 
 make
 make install
