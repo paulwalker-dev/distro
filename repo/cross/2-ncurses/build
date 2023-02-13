@@ -18,6 +18,7 @@ popd
     --mandir="/usr/share/man" \
     --with-manpage-format=normal \
     --with-shared \
+    --with-termlib=tinfo \
     --without-normal \
     --with-cxx-shared \
     --without-debug \

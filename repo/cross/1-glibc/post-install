@@ -1,0 +1,3 @@
+#!/bin/sh -e
+
+"$KISS_ROOT/tools/libexec/gcc/$KISS_TGT/12.2.0/install-tools/mkheaders" $KISS_ROOT/tools

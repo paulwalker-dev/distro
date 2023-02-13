@@ -1,7 +1,11 @@
 set +h
 umask 022
-KISS_ROOT="$(pwd)/sysroot"
-KISS_PATH="$(pwd)/repo"
+if [ -d "/repo" ]; then
+    KISS_PATH="/repo"
+else
+    KISS_ROOT="$(pwd)/sysroot"
+    KISS_PATH="$(pwd)/repo/cross"
+fi
 LC_ALL=POSIX
 KISS_TGT="$(uname -m)-lfs-linux-gnu"
 PATH="/usr/bin"
