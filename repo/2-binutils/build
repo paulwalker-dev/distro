@@ -1,0 +1,20 @@
+#!/bin/sh -e
+
+sed '6009s/$add_dir//' -i ltmain.sh
+
+mkdir -p build && cd build
+
+../configure \
+    --prefix="/usr" \
+    --build="$(../config.guess)" \
+    --host="$KISS_TGT" \
+    --disable-nls \
+    --enable-shared \
+    --enable-gprofng=no \
+    --disable-werror \
+    --enable-64-bit-bfd
+
+make
+make install
+
+rm -v "$1/usr/lib/lib"{bfd,ctf,ctf-nobfd,opcodes}.{a,la}

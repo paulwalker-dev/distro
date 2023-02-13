@@ -1,0 +1,9 @@
+#!/bin/sh -e
+
+./configure \
+    --prefix="/usr" \
+    --host="$KISS_TGT" \
+    --build="$(build-aux/config.guess)"
+
+make
+make install

@@ -1,0 +1,13 @@
+#!/bin/sh -e
+
+./configure \
+    --prefix="/usr" \
+    --host="$KISS_TGT" \
+    --build="$(build-aux/config.guess)" \
+    --disable-static \
+    --docdir=/usr/share/doc/xz-$2
+
+make
+make install
+
+rm -v "$1/usr/lib/liblzma.la"

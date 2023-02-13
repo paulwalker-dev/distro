@@ -1,0 +1,8 @@
+#!/bin/sh -e
+
+./configure \
+    --prefix="/usr" \
+    --host="$KISS_TGT"
+
+make
+make install
