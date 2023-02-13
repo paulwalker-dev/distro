@@ -1,0 +1,7 @@
+#!/bin/sh -e
+
+./configure \
+    --disable-shared
+
+# make
+# cp -v gettext-tools/src/{msgfmt,msgmerge,xgettext} $1/usr/bin
