@@ -7,8 +7,7 @@
     --without-bash-malloc
 
 make
-# make DESTDIR="$1" install
-make install
+make DESTDIR="$1" install # IDK
 
 mkdir -p "$1/bin"
 ln -sv bash "$1/bin/sh"
