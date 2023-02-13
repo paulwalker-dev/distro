@@ -1,0 +1,15 @@
+#!/bin/sh -e
+
+mkdir -p build && cd build
+
+../libstdc++-v3/configure \
+    --host="$KISS_TGT" \
+    --build="$(../config.guess)" \
+    --prefix="/usr" \
+    --disable-multilib \
+    --disable-nls \
+    --disable-libstdcxx-pch \
+    --with-gxx-include-dir="/tools/$LFS_TGT/include/c++/$2"
+
+make
+make install

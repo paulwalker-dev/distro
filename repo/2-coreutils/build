@@ -1,0 +1,16 @@
+#!/bin/sh -e
+
+./configure \
+    --prefix="/usr" \
+    --host="$KISS_TGT" \
+    --build="$(build-aux/config.guess)" \
+    --enable-install-program=hostname \
+    --enable-no-install-program=kill,uptime
+
+make
+make install
+
+mv -v "$1/usr/bin/chroot"              "$1/usr/sbin"
+mkdir -pv "$1/usr/share/man/man8"
+mv -v "$1/usr/share/man/man1/chroot.1" "$1/usr/share/man/man8/chroot.8"
+sed -i 's/"1"/"8"/'                    "$1/usr/share/man/man8/chroot.8"

@@ -1,0 +1,14 @@
+#!/bin/sh -e
+
+./configure \
+    --prefix="/usr" \
+    --build="$(support/config.guess)" \
+    --host="$KISS_TGT" \
+    --without-bash-malloc
+
+make
+# make DESTDIR="$1" install
+make install
+
+mkdir -p "$1/bin"
+ln -sv bash "$1/bin/sh"
