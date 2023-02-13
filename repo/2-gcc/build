@@ -33,4 +33,5 @@ mkdir -p build && cd build
 make
 make install
 
+mkdir -p "$1/usr/bin"
 ln -sv gcc "$1/usr/bin/cc"

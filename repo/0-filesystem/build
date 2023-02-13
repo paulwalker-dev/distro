@@ -1,0 +1,11 @@
+#!/bin/sh -e
+
+mkdir -pv "$1/"{etc,var} "$1/usr/"{bin,lib,sbin}
+
+for i in bin lib sbin; do
+  ln -sv usr/$i "$1/$i"
+done
+
+case $(uname -m) in
+  x86_64) mkdir -pv "$1/lib64" ;;
+esac
