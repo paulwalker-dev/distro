@@ -1,7 +1,16 @@
 #!/bin/sh -e
 
+unset AR
+unset CC
+unset CXX
+unset NM
+unset RANLIB
+unset DESTDIR
+
 ./configure \
     --disable-shared
 
-# make
-# cp -v gettext-tools/src/{msgfmt,msgmerge,xgettext} $1/usr/bin
+make
+
+mkdir -p "$1/usr/bin"
+cp -v gettext-tools/src/{msgfmt,msgmerge,xgettext} "$1/usr/bin"

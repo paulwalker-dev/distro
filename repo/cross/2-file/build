@@ -13,7 +13,8 @@ popd
 ./configure \
     --prefix="/usr" \
     --host="$KISS_TGT" \
-    --build="$(./config.guess)"
+    --build="$(./config.guess)" \
+    --disable-zlib
 
 make FILE_COMPILE="$(pwd)/build/src/file"
 make install

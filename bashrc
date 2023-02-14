@@ -11,10 +11,11 @@ LC_ALL=POSIX
 KISS_TGT="$(uname -m)-lfs-linux-gnu"
 PATH="/usr/bin"
 if [ ! -L /bin ]; then PATH="/bin:$PATH"; fi
-PATH="$KISS_ROOT/tools/bin:$PATH"
-PATH="$(pwd)/kiss:$PATH"
 if [ -d "/repo" ]; then
     PATH="$PATH:/tmp/bin"
+else
+    PATH="$KISS_ROOT/tools/bin:$PATH"
+    PATH="$(pwd)/kiss:$PATH"
 fi
 CONFIG_SITE=$KISS_ROOT/usr/share/config.site
 export KISS_BASE KISS_ROOT KISS_PATH LC_ALL KISS_TGT PATH CONFIG_SITE
