@@ -11,4 +11,4 @@ else
     HOME="$(realpath "$PRJ_DIR/tmp")"
 fi
 
-env -i HOME=$HOME TERM=$TERM PS1="$PS1" CHROOT=$CHROOT /bin/bash
+env -i HOME=$HOME TERM=$TERM PS1="$PS1" CHROOT=$CHROOT /bin/bash $@

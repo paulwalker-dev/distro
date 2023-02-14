@@ -25,7 +25,7 @@ bwrap \
         TERM="$TERM" \
         PATH=/usr/bin:/usr/sbin:/tmp/bin \
         CHROOT=1 \
-        /root/shell.sh
+        /root/shell.sh $@
 
 rm -rf chroot/fakeroot/tmp
 umount chroot/fakeroot

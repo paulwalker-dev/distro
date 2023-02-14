@@ -1,10 +1,10 @@
 #!/bin/sh -e
 
-unset AR
-unset CC
-unset CXX
-unset NM
-unset RANLIB
+# unset AR
+# unset CC
+# unset CXX
+# unset NM
+# unset RANLIB
 unset DESTDIR
 
 ./configure \
