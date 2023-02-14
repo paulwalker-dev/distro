@@ -1,6 +1,4 @@
-0-filesystem
-1-binutils
-1-gcc
+0-meta
 1-linux-headers
 1-glibc
 1-libstdc++
