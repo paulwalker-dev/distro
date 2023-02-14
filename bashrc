@@ -19,5 +19,5 @@ else
 fi
 CONFIG_SITE=$KISS_ROOT/usr/share/config.site
 export KISS_BASE KISS_ROOT KISS_PATH LC_ALL KISS_TGT PATH CONFIG_SITE
-export MAKEFLAGS="-j12"
+export MAKEFLAGS="-j8"
 export LOGNAME="builder"

@@ -1,7 +1,5 @@
 #!/bin/sh
 
-kiss d $(kiss s 3* | tr '/' ' ' | gawk '{ print $NF }')
-
 mkdir -p chroot/{fakeroot,upper,work,db}
 fuse-overlayfs -o lowerdir=sysroot,upperdir=chroot/upper,workdir=chroot/work chroot/fakeroot
 

@@ -1,5 +1,9 @@
 #!/bin/sh -e
 
+for patch in patch/*.patch; do
+    patch -p1 < "${patch}"
+done
+
 mkdir -p "$1/"{lib,lib64}
 case $(uname -m) in
     i?86)
