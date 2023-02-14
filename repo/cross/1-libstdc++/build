@@ -9,7 +9,7 @@ mkdir -p build && cd build
     --disable-multilib \
     --disable-nls \
     --disable-libstdcxx-pch \
-    --with-gxx-include-dir="/tools/$LFS_TGT/include/c++/$2"
+    --with-gxx-include-dir="$KISS_ROOT/tools/$KISS_TGT/include/c++/$2"
 
 make
 make install
