@@ -15,8 +15,15 @@ kiss b 1-meta
 kiss b 2-meta
 
 sandbox="$(dirname "$0")"/../sandbox.sh
-alias sandbox="${sandbox}"
-sandbox kiss b 3-meta
-sandbox rm -rf /usr/share/{info,man,doc}/\*
-sandbox find /usr/{lib,libexec} -name \*.la -delete
-sandbox rm -rf /tools
+sudo KISS_REPO=chroot "${sandbox}" /root/stage3.sh
+
+# Backup chroot
+mkdir -p chroot/{fakeroot,upper,work,db}
+fuse-overlayfs -o lowerdir=sysroot,upperdir=chroot/upper,workdir=chroot/work chroot/fakeroot
+
+pushd chroot/fakeroot
+tar -cJpf "../../tmp/tools.tar.xz" .
+popd
+
+sync
+umount -R chroot/fakeroot

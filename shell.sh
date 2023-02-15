@@ -11,6 +11,6 @@ else
     HOME="$(realpath "$PRJ_DIR/tmp")"
 fi
 
-export cmd=${@:-/bin/bash}
+CMD=$@
 
-env -i HOME=$HOME TERM=$TERM PS1="$PS1" CHROOT=$CHROOT $cmd
+env -i HOME=$HOME TERM=$TERM PS1="$PS1" CHROOT=$CHROOT CMD="$CMD" bash
