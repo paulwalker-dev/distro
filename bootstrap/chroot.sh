@@ -2,7 +2,7 @@
 
 export KISS_PROMPT=0
 
-rm -rf "$KISS_ROOT"
+sudo rm -rf "$KISS_ROOT"
 kiss b 0-filesystem
 kiss b 0-meta
 
@@ -15,5 +15,6 @@ kiss b 1-meta
 kiss b 2-meta
 
 sandbox="$(dirname "$0")"/../sandbox.sh
+sudo rm -rf chroot
 sudo KISS_REPO=chroot "${sandbox}" /root/stage3.sh
 sudo "$(dirname "$0")/backup.sh"
