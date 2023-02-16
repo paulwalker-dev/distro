@@ -6,10 +6,14 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 mkdir -p chroot/{fakeroot,upper,work,db}
-fuse-overlayfs -o lowerdir=sysroot,upperdir=chroot/upper,workdir=chroot/work chroot/fakeroot
+fuse-overlayfs -o lowerdir=${KISS_ROOT:-sysroot},upperdir=chroot/upper,workdir=chroot/work chroot/fakeroot
+
+mount -t tmpfs tmpfs chroot/fakeroot/var/db
+mount -t tmpfs tmpfs chroot/fakeroot/root
+mount -t tmpfs tmpfs chroot/fakeroot/tmp
 
 pushd chroot/fakeroot
-tar -cJpf "../../tmp/tools.tar.xz" .
+tar -cpf - . | pixz > "../../tmp/${1:-tools}.tar.xz" 
 popd
 
 sync

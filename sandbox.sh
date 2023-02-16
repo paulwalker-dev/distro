@@ -1,5 +1,7 @@
 #!/bin/sh
 
+cd "$(dirname "$0")"
+
 if [ "$EUID" -ne 0 ]; then
     echo "Please run as root"
     exit
@@ -7,7 +9,7 @@ fi
 
 # General chroot preperation
 mkdir -p chroot/{fakeroot,upper,work,db}
-fuse-overlayfs -o lowerdir=sysroot,upperdir=chroot/upper,workdir=chroot/work chroot/fakeroot
+fuse-overlayfs -o lowerdir="${KISS_ROOT:-sysroot}",upperdir=chroot/upper,workdir=chroot/work chroot/fakeroot
 
 export FAKEROOT=chroot/fakeroot
 
@@ -65,6 +67,10 @@ bind_file \
 bind_file \
     "bootstrap/stage3.sh" \
     "/root/stage3.sh"
+
+bind_file \
+    "bootstrap/stage4.sh" \
+    "/root/stage4.sh"
 
 bind_file \
     "kiss/kiss" \

@@ -5,7 +5,7 @@ if [ -d "/repo" ]; then
 else
     KISS_ROOT="$(pwd)/sysroot"
     KISS_BASE="$(pwd)/repo"
-    KISS_PATH="$KISS_BASE/cross:$KISS_BASE/chroot"
+    KISS_PATH="$KISS_BASE/cross:$KISS_BASE/chroot:$KISS_BASE/core"
 fi
 LC_ALL=POSIX
 KISS_TGT="$(uname -m)-lfs-linux-gnu"
